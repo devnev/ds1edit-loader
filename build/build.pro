@@ -13,7 +13,7 @@ CONFIG += release warn_on qt thread
 DESTDIR = ../bin
 RESOURCES = ../ds1editloader.qrc
 RC_FILE = ../ds1editloader.rc
-DEFINES += _UNICODE NDEBUG
+DEFINES += UNICODE _UNICODE NDEBUG
 win32 {
 	HEADERS += ../src/dde.h
 	SOURCES += ../src/dde.cpp

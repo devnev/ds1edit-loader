@@ -286,10 +286,6 @@ void LoaderDialog::setupActions()
 #endif
 	connect(aboutAct, SIGNAL(triggered()), SLOT(about()));
 	connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
-
-#ifdef Q_WS_WIN
-	registerExtensionAct->setEnabled(false);
-#endif
 }
 
 void LoaderDialog::setupMenu()
@@ -906,11 +902,19 @@ void  LoaderDialog::registerExtension()
 
 	QSettings app("HKEY_CLASSES_ROOT\\Ds1editLoader.ds1\\shell\\Open\\ddeexec\\Application",
 		QSettings::NativeFormat);
-	app.setValue(QString(), ServiceName);
+#ifdef _UNICODE
+	app.setValue(QString(), QString::fromWCharArray(reinterpret_cast<const wchar_t*>(ServiceName)));
+#else
+	app.setValue(QString(), QString::fromAscii(ServiceName));
+#endif
 
 	QSettings topic("HKEY_CLASSES_ROOT\\Ds1editLoader.ds1\\shell\\Open\\ddeexec\\Topic",
 		QSettings::NativeFormat);
-	topic.setValue(QString(), TopicName);
+#ifdef _UNICODE
+	topic.setValue(QString(), QString::fromWCharArray(reinterpret_cast<const wchar_t*>(TopicName)));
+#else
+	topic.setValue(QString(), QString::fromAscii(TopicName));
+#endif
 
 	QMessageBox::information(this, "Success", ".ds1 extension registered");
 }

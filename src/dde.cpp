@@ -19,7 +19,7 @@ const TCHAR * const TopicName = TEXT("System");
 #define DEBUG_ONLY(exp) exp
 #endif
 
-#ifdef UNICODE
+#ifdef _UNICODE
 static const int CODEPAGE = CP_WINUNICODE;
 #else
 static const int CODEPAGE = CP_WINANSI;
