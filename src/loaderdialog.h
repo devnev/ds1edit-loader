@@ -129,9 +129,6 @@ private:
 
 	QString ds1editPath;
 	QString ds1editName;
-	bool useTabs;
-	bool configUseTabs;
-	bool showOutputOnRun;
 
 protected:
 	virtual void showEvent(QShowEvent* event);

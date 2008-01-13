@@ -84,10 +84,6 @@ LoaderDialog::LoaderDialog(QWidget* parent)
 	resizeValidator = new QIntValidator(1, 255, this);
 	actValidator = new QIntValidator(1, 5, this);
 
-	configUseTabs = true;
-	useTabs = false;
-	showOutputOnRun = true;
-
 	bool configure = false;
 	try {
 		reloadSettings();
@@ -125,10 +121,7 @@ LoaderDialog::LoaderDialog(QWidget* parent)
 
 	setWindowIcon(QIcon(":/res/ds1edit loader.png"));
 	setWindowTitle(tr("ds1edit Loader"));
-	if (useTabs)
-		QWidget::resize(dialogTabs->minimumWidth(), 300);
-	else
-		QWidget::resize(600, 300);
+	QWidget::resize(600, 300);
 
 	setAcceptDrops(true);
 	updateEnabledStates();
@@ -201,14 +194,9 @@ void LoaderDialog::setupWidgets()
 	paramsLayout->addWidget(configDt1List, 1, 1);
 	paramsLayout->addWidget(forcePalActWidget, 1, 2);
 	paramsLayout->addWidget(autoPrestDef, 1, 3);
-	if (useTabs)
-		paramsLayout->addItem(
-			new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding),
-			2, 0, 1, 4);
 
 	mapList = new QTreeWidget;
-	if (useTabs) params = new QWidget;
-	else params = new QGroupBox(tr("Parameters"));
+	params = new QGroupBox(tr("Parameters"));
 	editorOutput = new QTextEdit;
 	params->setLayout(paramsLayout);
 	mapList->setColumnCount(6);
@@ -231,54 +219,22 @@ void LoaderDialog::setupWidgets()
 	editorOutput->setAcceptRichText(false);
 	editorOutput->setReadOnly(true);
 	editorOutput->setStyleSheet(editorOutput->styleSheet() +
-		"\nQWidget { background: #CCC; font-family: monospace; }\n");
+		"\nQWidget { background: #CCC; }\n");
 
 	menu = menuBar(); //new QMenuBar(this);
 	//menu->setMinimumWidth(200);
 
-	if (useTabs)
-	{
-		dialogTabs = new QTabWidget;
-		QWidget* wrapper = new QWidget;
-		QVBoxLayout* wrapperLayout = new QVBoxLayout(wrapper);
-		wrapperLayout->addWidget(mapList);
-		dialogTabs->addTab(wrapper, tr("&Maps"));
-		wrapper->setBackgroundRole(QPalette::Window);
-		wrapper->setAutoFillBackground(true);
-		wrapper = new QWidget;
-		wrapperLayout = new QVBoxLayout(wrapper);
-		wrapperLayout->addWidget(params);
-		dialogTabs->addTab(wrapper, tr("&Parameters"));
-		wrapper->setBackgroundRole(QPalette::Window);
-		wrapper->setAutoFillBackground(true);
-		editorOutputWrapper = new QWidget;
-		wrapperLayout = new QVBoxLayout(editorOutputWrapper);
-		wrapperLayout->addWidget(editorOutput);
-		dialogTabs->addTab(editorOutputWrapper, tr("&Output"));
-		editorOutputWrapper->setBackgroundRole(QPalette::Window);
-		editorOutputWrapper->setAutoFillBackground(true);
-		setCentralWidget(dialogTabs);
-	}
-	else
-	{
-		QSplitter* splitter = new QSplitter(Qt::Vertical, this);
-		setCentralWidget(splitter);
-		QWidget* wrapper = new QWidget;
-		QVBoxLayout* wrapperLayout = new QVBoxLayout(wrapper);
-		wrapperLayout->addWidget(mapList);
-		wrapperLayout->addWidget(params);
-		//setCentralWidget(new QWidget);
-		//dialogLayout = new QVBoxLayout(centralWidget());
-		////dialogLayout->addItem(new QSpacerItem(-1, menu->height(), QSizePolicy::Minimum, QSizePolicy::Fixed));
-		//dialogLayout->addWidget(mapList);
-		//dialogLayout->addWidget(params);
-		//dialogLayout->addWidget(editorOutput);
-		splitter->addWidget(wrapper);
-		editorOutputWrapper = new QWidget;
-		wrapperLayout = new QVBoxLayout(editorOutputWrapper);
-		wrapperLayout->addWidget(editorOutput);
-		splitter->addWidget(editorOutputWrapper);
-	}
+	QSplitter* splitter = new QSplitter(Qt::Vertical, this);
+	setCentralWidget(splitter);
+	QWidget* wrapper = new QWidget;
+	QVBoxLayout* wrapperLayout = new QVBoxLayout(wrapper);
+	wrapperLayout->addWidget(mapList);
+	wrapperLayout->addWidget(params);
+	splitter->addWidget(wrapper);
+	editorOutputWrapper = new QWidget;
+	wrapperLayout = new QVBoxLayout(editorOutputWrapper);
+	wrapperLayout->addWidget(editorOutput);
+	splitter->addWidget(editorOutputWrapper);
 }
 
 void LoaderDialog::setupActions()
@@ -298,13 +254,10 @@ void LoaderDialog::setupActions()
 	toggleSingleAct->setCheckable(true);
 	toggleSingleAct->setChecked(true);
 #endif
-	if (!useTabs)
-	{
-		showParamsAct = new QAction(tr("Show &Parameters"), this);
-		showParamsAct->setCheckable(true);
-		showOutputAct = new QAction(tr("Show &Output"), this);
-		showOutputAct->setCheckable(true);
-	}
+	showParamsAct = new QAction(tr("Show &Parameters"), this);
+	showParamsAct->setCheckable(true);
+	showOutputAct = new QAction(tr("Show &Output"), this);
+	showOutputAct->setCheckable(true);
 #ifdef Q_WS_WIN
 	registerExtensionAct = new QAction(tr("&Register Extension"), this);
 #endif
@@ -323,11 +276,8 @@ void LoaderDialog::setupActions()
 	runAct->setShortcut(Qt::ControlModifier | Qt::Key_R);
 	connect(exitAct, SIGNAL(triggered()), SLOT(close()));
 	exitAct->setShortcut(Qt::ControlModifier | Qt::Key_Q);
-	if (!useTabs)
-	{
-		connect(showParamsAct, SIGNAL(toggled(bool)), params, SLOT(setVisible(bool)));
-		connect(showOutputAct, SIGNAL(toggled(bool)), editorOutputWrapper, SLOT(setVisible(bool)));
-	}
+	connect(showParamsAct, SIGNAL(toggled(bool)), params, SLOT(setVisible(bool)));
+	connect(showOutputAct, SIGNAL(toggled(bool)), editorOutputWrapper, SLOT(setVisible(bool)));
 	connect(configEditorAct, SIGNAL(triggered()), SLOT(configureEditor()));
 	connect(configLoaderAct, SIGNAL(triggered()), SLOT(configureLoader()));
 #ifdef Q_WS_WIN
@@ -368,12 +318,9 @@ void LoaderDialog::setupMenu()
 	currMenu->addAction(registerExtensionAct);
 #endif
 
-	if (!useTabs)
-	{
-		currMenu = menu->addMenu(tr("&View"));
-		currMenu->addAction(showParamsAct);
-		currMenu->addAction(showOutputAct);
-	}
+	currMenu = menu->addMenu(tr("&View"));
+	currMenu->addAction(showParamsAct);
+	currMenu->addAction(showOutputAct);
 
 	currMenu = menu->addMenu(tr("&Help"));
 	currMenu->addAction(aboutAct);
@@ -384,11 +331,8 @@ void LoaderDialog::updateEnabledStates()
 {
 	FNTRACE("", "LoaderDialog", "updateEnabledStates", "");
 
-	if (!useTabs)
-	{
-		params->setVisible(showParamsAct->isChecked());
-		editorOutputWrapper->setVisible(showOutputAct->isChecked());
-	}
+	params->setVisible(showParamsAct->isChecked());
+	editorOutputWrapper->setVisible(showOutputAct->isChecked());
 
 	const bool enableParams = mapList->topLevelItemCount() <= 1;
 	forceDt1->setEnabled(enableParams);
@@ -409,7 +353,6 @@ void LoaderDialog::updateEnabledStates()
 		makeBatchAct->setEnabled(false);
 		runAct->setEnabled(false);
 	}
-	std::cout << "end updateEnabledStates()" << std::endl;
 }
 
 void LoaderDialog::showEvent(QShowEvent* event)
@@ -490,7 +433,7 @@ void LoaderDialog::run()
 		connect(editor, SIGNAL(finished()), SLOT(enable()));
 		connect(editor, SIGNAL(finished()), editor, SLOT(deleteLater()));
 		editor->run();
-		if (showOutputOnRun) showOutput();
+		showOutput();
 	} catch (Exception& e) {
 		QMessageBox::critical(this, "Error", e.what());
 		enable();
@@ -744,7 +687,7 @@ void LoaderDialog::configureEditor()
 	QDir currentDir = QDir::current();
 	try {
 		QDir::setCurrent(ds1editPath);
-		EditorConfigDialog dlg(this, configUseTabs);
+		EditorConfigDialog dlg(this, true);
 		dlg.exec();
 	} catch (Exception& e) {
 		QMessageBox::critical(this, "Error", e.what());
@@ -803,30 +746,14 @@ void LoaderDialog::setParametersDisabled(bool disabled)
 
 void LoaderDialog::showParameters()
 {
-	if (useTabs)
-	{
-		assert(dialogTabs != 0);
-		dialogTabs->setCurrentIndex(1);
-	}
-	else
-	{
-		assert(showParamsAct != 0);
-		showParamsAct->setChecked(true);
-	}
+	assert(showParamsAct != 0);
+	showParamsAct->setChecked(true);
 }
 
 void LoaderDialog::showOutput()
 {
-	if (useTabs)
-	{
-		assert(dialogTabs != 0);
-		dialogTabs->setCurrentIndex(2);
-	}
-	else
-	{
-		assert(showOutputAct != 0);
-		showOutputAct->setChecked(true);
-	}
+	assert(showOutputAct != 0);
+	showOutputAct->setChecked(true);
 }
 
 void LoaderDialog::reloadSettings()
@@ -841,9 +768,6 @@ void LoaderDialog::reloadSettings()
 	if (!iniData.contains("ds1editname"))
 		ETHROW(Exception("ds1editname not found in loader's .ini"));
 	ds1editName = iniData.value("ds1editname");
-	readBoolVar(iniData, "loader_use_tabs", useTabs);
-	readBoolVar(iniData, "editor_config_use_tabs", configUseTabs);
-	readBoolVar(iniData, "show_output_on_run", showOutputOnRun);
 }
 
 void LoaderDialog::about()
