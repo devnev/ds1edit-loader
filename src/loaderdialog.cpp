@@ -892,13 +892,13 @@ void  LoaderDialog::registerExtension()
 
 	QSettings icon("HKEY_CLASSES_ROOT\\Ds1editLoader.ds1\\DefaultIcon",
 		QSettings::NativeFormat);
-	icon.setValue(QString(), QString("%1,1")
+	icon.setValue(QString(), QString("\"%1\",1")
 		.arg(QCoreApplication::applicationFilePath().replace('/', '\\')));
 
 	QSettings command("HKEY_CLASSES_ROOT\\Ds1editLoader.ds1\\shell\\Open\\Command",
 		QSettings::NativeFormat);
-	command.setValue(QString(), QString("\"%1\" \"%2\"")
-		.arg(QCoreApplication::applicationFilePath()).replace('/', '\\').arg("%1"));
+	command.setValue(QString(), QString("\"%1\"")
+		.arg(QCoreApplication::applicationFilePath()).replace('/', '\\'));
 
 	QSettings ddeexec("HKEY_CLASSES_ROOT\\Ds1editLoader.ds1\\shell\\Open\\ddeexec",
 		QSettings::NativeFormat);
