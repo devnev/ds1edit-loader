@@ -102,7 +102,7 @@ private:
 	QDialogButtonBox* buttonBox;
 
 	void browseForMpq(QLineEdit* dest, const QString& name);
-	void setupWidgets(bool useTabs);
+	void setupWidgets();
 	void loadEditorConfig();
 	void syncData(ini::AttributeMap& data, bool saveDialogData);
 	void setupCommentWidgets(QWidget* parent);
@@ -112,7 +112,7 @@ private:
 	void setupMiscWidgets(QWidget* parent);
 
 public:
-	EditorConfigDialog(QWidget* parent = 0, bool useTabs = true);
+	EditorConfigDialog(QWidget* parent = 0);
 	virtual ~EditorConfigDialog() { }
 
 public slots:

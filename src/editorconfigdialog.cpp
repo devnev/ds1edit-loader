@@ -37,15 +37,15 @@
 #include <cassert>
 #include "datasync.h"
 
-EditorConfigDialog::EditorConfigDialog(QWidget* parent, bool useTabs)
+EditorConfigDialog::EditorConfigDialog(QWidget* parent)
 : QDialog(parent, Qt::MSWindowsFixedSizeDialogHint)
 {
-	setupWidgets(useTabs);
+	setupWidgets();
 	setWindowFlags(windowFlags() & (~Qt::WindowContextHelpButtonHint));
 	setWindowTitle(tr("Configure Editor"));
 }
 
-void EditorConfigDialog::setupWidgets(bool useTabs)
+void EditorConfigDialog::setupWidgets()
 {
 	struct WidgetGroupSetupFunctions {
 		QString name;
@@ -63,31 +63,18 @@ void EditorConfigDialog::setupWidgets(bool useTabs)
 	topLevelLayout->setSpacing(6);
 	topLevelLayout->setMargin(9);
 
-	if (useTabs)
+	QTabWidget* tabWidget = new QTabWidget(this);
+	for (int i = 0; i < 5; ++i)
 	{
-		QTabWidget* tabWidget = new QTabWidget(this);
-		for (int i = 0; i < 5; ++i)
-		{
-			QWidget* tabPage = new QWidget;
-			QVBoxLayout* pageLayout = new QVBoxLayout(tabPage);
-			QWidget* groupWidget = new QWidget(tabPage);
-			pageLayout->addWidget(groupWidget);
-			pageLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
-			(this->*(widgetSetupFunctions[i].setupWidgetFn))(groupWidget);
-			tabWidget->addTab(tabPage, widgetSetupFunctions[i].name);
-		}
-		topLevelLayout->addWidget(tabWidget);
+		QWidget* tabPage = new QWidget;
+		QVBoxLayout* pageLayout = new QVBoxLayout(tabPage);
+		QWidget* groupWidget = new QWidget(tabPage);
+		pageLayout->addWidget(groupWidget);
+		pageLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Expanding));
+		(this->*(widgetSetupFunctions[i].setupWidgetFn))(groupWidget);
+		tabWidget->addTab(tabPage, widgetSetupFunctions[i].name);
 	}
-	else
-	{
-		for (int i = 0; i < 5; ++i)
-		{
-			QGroupBox* groupBox = new QGroupBox(this);
-			groupBox->setTitle(widgetSetupFunctions[i].name);
-			(this->*(widgetSetupFunctions[i].setupWidgetFn))(groupBox);
-			topLevelLayout->addWidget(groupBox);
-		}
-	}
+	topLevelLayout->addWidget(tabWidget);
 
 	buttonBox = new QDialogButtonBox(
 		QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);

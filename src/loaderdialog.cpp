@@ -687,7 +687,7 @@ void LoaderDialog::configureEditor()
 	QDir currentDir = QDir::current();
 	try {
 		QDir::setCurrent(ds1editPath);
-		EditorConfigDialog dlg(this, true);
+		EditorConfigDialog dlg(this);
 		dlg.exec();
 	} catch (Exception& e) {
 		QMessageBox::critical(this, "Error", e.what());
