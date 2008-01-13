@@ -265,13 +265,13 @@ void LoaderDialog::setupActions()
 	aboutQtAct = new QAction(tr("About &Qt..."), this);
 
 	connect(addFileAct, SIGNAL(triggered()), SLOT(addFiles()));
-	addFileAct->setShortcut(Qt::ControlModifier | Qt::Key_A);
+	addFileAct->setShortcut(Qt::ControlModifier | Qt::Key_O);
 	connect(removeFileAct, SIGNAL(triggered()), SLOT(removeSelection()));
 	removeFileAct->setShortcut(Qt::Key_Delete);
 	connect(loadBatchAct, SIGNAL(triggered()), SLOT(loadBatch()));
-	loadBatchAct->setShortcut(Qt::ControlModifier | Qt::Key_O);
+	loadBatchAct->setShortcut(Qt::ControlModifier | Qt::Key_L);
 	connect(makeBatchAct, SIGNAL(triggered()), SLOT(makeBatch()));
-	makeBatchAct->setShortcut(Qt::ControlModifier | Qt::Key_M);
+	makeBatchAct->setShortcut(Qt::ControlModifier | Qt::Key_S);
 	connect(runAct, SIGNAL(triggered()), SLOT(run()));
 	runAct->setShortcut(Qt::ControlModifier | Qt::Key_R);
 	connect(exitAct, SIGNAL(triggered()), SLOT(close()));
