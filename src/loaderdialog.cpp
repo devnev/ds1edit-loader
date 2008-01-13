@@ -133,6 +133,7 @@ LoaderDialog::LoaderDialog(QWidget* parent)
 	setAcceptDrops(true);
 	updateEnabledStates();
 
+#ifdef Q_WS_WIN
 	ddeServer = 0;
 	enableSingleInstance(true);
 	/*ddeServer = new DdeInterface(this);
@@ -144,6 +145,7 @@ LoaderDialog::LoaderDialog(QWidget* parent)
 	// according to the spec, commands that make the server shutdown should be
 	// performed *after* the callback has returned...
 	//connect(ddeServer, SIGNAL(exit()), SLOT(close()));*/
+#endif
 }
 
 void LoaderDialog::setupWidgets()
@@ -291,9 +293,11 @@ void LoaderDialog::setupActions()
 	exitAct = new QAction(tr("E&xit"), this);
 	configEditorAct = new QAction(tr("Configure &Editor..."), this);
 	configLoaderAct = new QAction(tr("Configure &Loader..."), this);
+#ifdef Q_WS_WIN
 	toggleSingleAct = new QAction(tr("&Auto-Add Files Opened in Explorer"), this);
 	toggleSingleAct->setCheckable(true);
 	toggleSingleAct->setChecked(true);
+#endif
 	if (!useTabs)
 	{
 		showParamsAct = new QAction(tr("Show &Parameters"), this);
@@ -301,7 +305,9 @@ void LoaderDialog::setupActions()
 		showOutputAct = new QAction(tr("Show &Output"), this);
 		showOutputAct->setCheckable(true);
 	}
+#ifdef Q_WS_WIN
 	registerExtensionAct = new QAction(tr("&Register Extension"), this);
+#endif
 	aboutAct = new QAction(tr("&About..."), this);
 	aboutQtAct = new QAction(tr("About &Qt..."), this);
 
@@ -324,12 +330,14 @@ void LoaderDialog::setupActions()
 	}
 	connect(configEditorAct, SIGNAL(triggered()), SLOT(configureEditor()));
 	connect(configLoaderAct, SIGNAL(triggered()), SLOT(configureLoader()));
+#ifdef Q_WS_WIN
 	connect(toggleSingleAct, SIGNAL(toggled(bool)), SLOT(enableSingleInstance(bool)));
 	connect(registerExtensionAct, SIGNAL(triggered()), SLOT(registerExtension()));
+#endif
 	connect(aboutAct, SIGNAL(triggered()), SLOT(about()));
 	connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
-#ifndef Q_WS_WIN
+#ifdef Q_WS_WIN
 	registerExtensionAct->setEnabled(false);
 #endif
 }
@@ -355,8 +363,10 @@ void LoaderDialog::setupMenu()
 	currMenu->addAction(configEditorAct);
 	currMenu->addAction(configLoaderAct);
 	currMenu->addSeparator();
+#ifdef Q_WS_WIN
 	currMenu->addAction(toggleSingleAct);
 	currMenu->addAction(registerExtensionAct);
+#endif
 
 	if (!useTabs)
 	{
@@ -399,6 +409,7 @@ void LoaderDialog::updateEnabledStates()
 		makeBatchAct->setEnabled(false);
 		runAct->setEnabled(false);
 	}
+	std::cout << "end updateEnabledStates()" << std::endl;
 }
 
 void LoaderDialog::showEvent(QShowEvent* event)
@@ -943,11 +954,11 @@ void LoaderDialog::mapDoubleClicked(QTreeWidgetItem* item, int column)
 	}
 }
 
+#ifdef Q_WS_WIN
 void  LoaderDialog::registerExtension()
 {
 	FNTRACE("", "LoaderDialog", "registerExtension", "");
 
-#ifdef Q_WS_WIN
 	QSettings ext("HKEY_CLASSES_ROOT\\.ds1", QSettings::NativeFormat);
 	ext.setValue(QString(), "Ds1editLoader.ds1");
 
@@ -978,9 +989,10 @@ void  LoaderDialog::registerExtension()
 	topic.setValue(QString(), TopicName);
 
 	QMessageBox::information(this, "Success", ".ds1 extension registered");
-#endif
 }
+#endif
 
+#ifdef Q_WS_WIN
 void LoaderDialog::enableSingleInstance(bool enabled)
 {
 	FNTRACE("", "LoaderDialog", "enableSingleInstance", (enabled?"True":"False"));
@@ -1005,3 +1017,4 @@ void LoaderDialog::enableSingleInstance(bool enabled)
 		ddeServer = 0;
 	}
 }
+#endif

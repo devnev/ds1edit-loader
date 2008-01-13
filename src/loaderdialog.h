@@ -42,7 +42,9 @@ class QAction;
 class QShowEvent;
 class QWidget;
 class QTreeWidgetItem;
+#ifdef Q_WS_WIN
 class DdeInterface;
+#endif
 
 class LoaderDialog : public QMainWindow
 {
@@ -98,15 +100,21 @@ private:
 	QAction* exitAct;
 	QAction* configEditorAct;
 	QAction* configLoaderAct;
+#ifdef Q_WS_WIN
 	QAction* toggleSingleAct;
+#endif
 	QAction* showParamsAct;
 	QAction* showOutputAct;
+#ifdef Q_WS_WIN
 	QAction* registerExtensionAct;
+#endif
 	QAction* aboutAct;
 	QAction* aboutQtAct;
 	/*@}*/
 
+#ifdef Q_WS_WIN
 	DdeInterface* ddeServer;
+#endif
 
 	QStringList dt1List;
 
@@ -155,10 +163,14 @@ private slots:
 	void configureDt1List();
 	void configureEditor();
 	void configureLoader();
+#ifdef Q_WS_WIN
 	void registerExtension();
+#endif
 	void about();
 
+#ifdef Q_WS_WIN
 	void enableSingleInstance(bool enabled);
+#endif
 
 	void mapDoubleClicked(QTreeWidgetItem* item, int column);
 
