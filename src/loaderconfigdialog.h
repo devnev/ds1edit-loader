@@ -41,12 +41,6 @@ private:
 	QLineEdit *editorPath;
 	QLineEdit *editorName;
 	//QPushButton *browseButton;
-	//QGroupBox *displayGroup;
-	//QVBoxLayout *displayGroupLayout;
-	//QHBoxLayout *tabOptionsLayout;
-	QCheckBox *useLoaderTabs;
-	QCheckBox *useEditorConfigTabs;
-	QCheckBox *switchToOutput;
 	//QGroupBox *mapListGroup;
 	//QVBoxLayout *mapListGroupLayout;
 	QTreeWidget *mapList;

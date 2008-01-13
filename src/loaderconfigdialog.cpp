@@ -91,28 +91,9 @@ void LoaderConfigDialog::setupWidgets()
 
 	topLevelLayout->addWidget(groupBox);
 
-	groupBox = new QGroupBox(tr("Display"), this);
-
-	QVBoxLayout* vboxLayout = new QVBoxLayout(groupBox);
-
-	QHBoxLayout* hboxLayout = new QHBoxLayout;
-
-	useLoaderTabs = new QCheckBox(tr("Use tab layout for loader"), groupBox);
-	hboxLayout->addWidget(useLoaderTabs);
-
-	useEditorConfigTabs = new QCheckBox(tr("Use tab layout for editor config"), groupBox);
-	hboxLayout->addWidget(useEditorConfigTabs);
-
-	vboxLayout->addLayout(hboxLayout);
-
-	switchToOutput = new QCheckBox(tr("Show output window when running editor"), groupBox);
-	vboxLayout->addWidget(switchToOutput);
-
-	topLevelLayout->addWidget(groupBox);
-
 	groupBox = new QGroupBox(tr("Map List"), this);
 
-	vboxLayout = new QVBoxLayout(groupBox);
+	QVBoxLayout* vboxLayout = new QVBoxLayout(groupBox);
 
 	mapList = new QTreeWidget(groupBox);
 	mapList->setColumnCount(6);
@@ -126,7 +107,7 @@ void LoaderConfigDialog::setupWidgets()
 	mapList->setSelectionMode(QAbstractItemView::ExtendedSelection);
 	vboxLayout->addWidget(mapList);
 
-	hboxLayout = new QHBoxLayout;
+	QHBoxLayout* hboxLayout = new QHBoxLayout;
 
 	hboxLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Preferred));
 
@@ -167,9 +148,6 @@ void LoaderConfigDialog::syncData(bool saveDialogData)
 	if (!lineedit("ds1editpath", editorPath, "", read, data) ||
 		!lineedit("ds1editname", editorName, "", read, data))
 		mode = ini::full;
-	checkbox("loader_use_tabs", useLoaderTabs, false, false, read, data);
-	checkbox("editor_config_use_tabs", useEditorConfigTabs, true, false, read, data);
-	checkbox("show_output_on_run", switchToOutput, true, false, read, data);
 	if (!read)
 	{
 		if (mode == ini::preserve)
