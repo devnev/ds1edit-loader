@@ -1,0 +1,9 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file>res/ds1edit_default.ini</file>
+	<file>res/loader_default.ini</file>
+	<!--file>res/ds1edit loader.ico</file-->
+	<file>res/ds1edit loader.png</file>
+	<!--file>res/ds1 files.ico</file-->
+</qresource>
+</RCC>

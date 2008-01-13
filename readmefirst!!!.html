@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>ds1edit Loader ReadMe</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+	body { width: 40em; margin-left: auto; margin-right: auto;
+		margin-bottom: 20px; color: black; font-family: sans-serif;
+		background: white url(pp_1_1.jpg) no-repeat fixed center center; }
+</style>
+<style type="text/css">
+	body { text-align: justify; }
+	h2 { font-size: 130%; margin: 10px 0; }
+	h3 { font-size: 90%; margin: 0; }
+	p { margin: 5px 0; font-size: 90%; line-height: 115%; }
+	em { font-variant: small-caps; font-style: normal; /* font-weight: bold; */ }
+	a { color: #333; text-decoration: underline; }
+	a:hover { color: black; text-decoration: underline overline; }
+	#index ul { list-style-type: none; margin: 0; padding: 0; }
+	#index > ul > li > a { font-size: 90%; display: inline; }
+	#index ul ul { display: inline; margin: 0; padding: 0; }
+	#index li li { display: inline; font-size: 70%; margin: 0; padding: 0; }
+	#valid { text-align: right; height: 1.5em; vertical-align: middle; }
+	#valid a { height: 100%; font-size: 80%; }
+	img { border: 0; }
+</style>
+<!--[if lte IE 6]><style type="text/css">
+	#index .section { font-size: 90%; }
+</style><![endif]-->
+<!--[if lte IE 7]><style type="text/css">
+	#index .section { margin-right: .2em; }
+</style><![endif]-->
+<style type="text/css" media="print">
+	p#valid { display: none; }
+</style>
+</head>
+<body>
+<h1 id="heading">ds1edit Loader Installation and More</h1>
+<div id="index">
+	<ul><li><a href="#installation" class="section">Installation</a><ul>
+	<li><a href="#installexe">Installing the Loader</a></li>
+	<li><a href="#installoader">Setting up the Loader</a></li>
+	<li><a href="#installeditor">Setting up the Editor</a></li>
+	</ul></li>
+	<li><a href="#use" class="section">Use</a><ul>
+	<li><a href="#uselaunch">Launching</a></li>
+	<li><a href="#usefiles">Adding and Removing Files</a></li>
+	<li><a href="#useparams">Editor Parameters</a></li>
+	<li><a href="#useloader">Configuring the Loader</a></li>
+	<li><a href="#useeditor">Configuring the Editor</a></li>
+	<li><a href="#usebatch">Using Batch Files</a></li>
+	<li><a href="#userun">Running the Editor directly</a></li>
+	<li><a href="#useexit">Exiting the loader</a></li>
+	</ul></li>
+	<li><a href="#params" class="section">The Parameters</a><ul>
+	<li><a href="#paramsresize">Resize</a></li>
+	<li><a href="#paramsdt1">Force .dt1</a></li>
+	<li><a href="#paramspalette">Force Pallete</a></li>
+	<li><a href="#paramsnocheck">Don't Check Act</a></li>
+	<li><a href="#paramsautodef">Auto-detect LvlPrest Def</a></li>
+	<li><a href="#paramsexample">Example</a></li>
+	</ul></li>
+	<li><a href="#maplistedit" class="section">Changing the maplist.txt manually</a>
+	</li>
+	<li><a href="#afterword" class="section">Other Stuff</a><ul>
+	<li><a href="#feedback">Feedback</a></li>
+	<li><a href="#credits">Credits</a></li>
+	<li><a href="#license">License</a></li>
+	</ul></li></ul>
+</div>
+<div id="mainText">
+
+<div>
+<h2 id="installation">Installation:</h2>
+<h3 id="installexe">Installing the Loader</h3>
+<p>Put &quot;ds1edit Loader.exe&quot;, <!--&quot;ds1edit_loader.ini&quot;,-->
+&quot;maplist.txt&quot; and the accompanying .dlls in any directory.</p>
+<h3 id="installloader">Setting up the Loader</h3>
+<p>Start the loader. It should tell you that it is unconfigured and take you
+too the configuration dialog. If not, select the menu item &quot;Settings&rArr;
+Configure Loader&quot;. Click on the &quot;Browse...&quot; button. Navigate to
+the directory where you installed the editor and double-click on the
+executable.  Click on OK. Now click on &quot;Options&rArr;Register
+Extension&quot;. A confirmation message should pop up, click OK.</p>
+<h3 id="installeditor">Setting up the Editor</h3>
+<p>If you have only just installed the editor and have not configured it yet,
+select the menu item &quot;Settings&rArr;Configure Editor&quot;. In the following
+window change the paths to the different .mpq archives by using the
+&quot;...&quot; buttons. Modify any other settings as you please, but beware of
+the two fields with the &quot;Revert&quot; button next to them, they are meant
+for advanced modders who have changed the .dlls.</p>
+</div>
+<div>
+<h2 id="use">Use:</h2>
+<h3 id="uselaunch">Launching</h3>
+<p>The best way to launch the editor is by running it directly (double-clicking
+on the executable or creating a shortcut to do the equivalent). After using the
+&quot;Options&rArr;Register Extension&quot; menu item you can also just double
+click on a map file (Currently a error message will pop up along with the
+loader, just click OK).</p>
+<h3 id="usefiles">Adding and Removing Files</h3>
+<p>If you have used the &quot;File&rArr;Make Batch&quot; command to save a .bat
+and/or a .ini file previously, you can use the &quot;File&rArr;Load Batch&quot;
+menu item to reload those files. To add additional maps to the list, use the
+&quot;File&rArr;Add&quot; menu item and selected the file(s) (you can select
+multiple ones at one go) or double-click the map files in explorer. If multiple
+maps have the same name, a window pops up where you can choose which one you
+want to use. Use the menu item &quot;File&rArr;Remove&quot; to remove all
+selected files from the list.</p>
+<h3 id="useparams">Editor Parameters</h3>
+<p>If you select the &quot;View&rArr;Parameters&quot; menu item, you can select
+additional startup parameters for the editor. Most of These options are only
+available if you have one single map in the list.</p>
+<h3 id="useloader">Configuring the Loader</h3>
+<p>To add new maps to the loader's .ini or change the location of the editor,
+select &quot;Settings&rArr;Configure Loader&quot;. In the dialog that appears,
+use the &quot;Browse&quot; button to select the different location of the
+editor. Use the Add/Modify/Duplicate/Remove buttons to modify the map list in
+the loader's .ini.  Note that if you have multiple files selected and click
+Modify/Duplicate, you only need to enter what changes you would like to make;
+Leave the other fields blank.  Clicking OK will write all the updates to disk
+and close the window, Cancel discards all changes and closes the window.</p>
+<h3 id="useeditor">Configuring the Editor</h3>
+<p>By selecting &quot;Settings&rArr;Configure Editor&quot; in the main window,
+you bring up a dialog with all options that can be set in the editor's ini. At
+the top you will have the options &quot;Remove comments&quot;, &quot;Use Paul's
+comments&quot; and, if the editor's ini was found and loaded successfully,
+&quot;Leave current comments&quot;. These options determine what comments should
+be written back to the ini. The other options in the window are described in the
+ini itself. I must warn (again) that changing the &quot;Size of object table in
+.dll&quot; is a bad idea unless you have modified the dlls.  Using the Cancel
+button closes the window, leaving the editor's ini unmodified.  The OK button
+also closes the window and updates the editor's ini. The default button sets all
+options except the paths to the way they are in a completely unmodified
+.ini.</p>
+<h3 id="usebatch">Using Batch Files</h3>
+<p>Selecting the &quot;File&rArr;Make Batch&quot; menu item lets you enter a name
+for the .bat file (the name for the .ini is automatically the same). A batch
+file is then created in the specified folder with the specified name.  This
+batch can be used to run the editor without having to start the loader, or it
+can be used to load the same map configuration into the loader later.</p>
+<h3 id="userun">Running the Editor directly</h3>
+<p>If you use the &quot;File&rArr;Run&quot; command the loader window closes and
+the editor is started. When you quit from the editor, the window for the loader
+is re-opened. You can then view the output of the editor by selecting
+&quot;View&rArr;Output&quot;. At the end of the output, the stderr.txt file and
+return code of the editor are displayed.  The output box and parameter fields
+can be hidden and shown by selecting their respective menu commands.</p>
+<h3 id="useexit">Exiting the loader</h3>
+<p>To close the loader, use the &quot;File&rArr;Exit&quot; menu item or click the
+cross in the upper-right corner.
+</p>
+</div>
+<div>
+<h2 id="params">The Parameters:</h2>
+<ul><li>
+<h3 id="paramsresize">Resize</h3>
+<p>Activating this parameter makes the editor resize the map to the sizes in the
+X and Y fields. Only numbers in the range of 1-255 work.</p>
+</li><li>
+<h3 id="paramsdt1">Force .dt1</h3>
+<p>Activating this parameter makes the editor use the .dt1 files in the list
+which can be changed by clicking the &quot;Configure .dt1 List&quot; button.  At
+least one .dt1 must be specified, and the maximum number is 32.</p>
+</li><li>
+<h3 id="paramspalette">Force Palette</h3>
+<p>Activating this parameter makes the editor use the palette from the act set
+in the &quot;Act&quot; box.</p>
+</li><li>
+<h3 id="paramsnocheck">Don't Check Act</h3>
+<p>Activating this parameter stops the editor from checking that the act to
+which the Type Id belongs and the Act in the .ds1 are the same.</p>
+</li><li>
+<h3 id="paramsautodef">Auto-detect LvlPrest Def</h3>
+<p>Activating this parameter makes the editor search in LvlPrest.txt directly
+for the LvlPrest Def.</p>
+</li></ul>
+<h3 id="paramsexample">Example:</h3>
+<p>To load one of the act4/expansion/lavaXX.ds1 files, you must use the Force
+Palette option with Act set to 4 and the Don't Check Act option.
+</p>
+</div>
+
+<div>
+<h2 id="maplistedit">Changing the maplist.txt manually:</h2>
+<p>The maplist.txt is formatted similar to the text files in data\global\excel
+in the game, the difference being the column header line is missing (hmm...
+could add that). As such, you can modify them with any program that can deal
+with those kinds of files (e.g. D2Excel, OpenOffice, etc.). The columns are:</p>
+<ol>
+<li>.ds1 name with extension</li>
+<li>Name (e.g. from LvlPrest name column)</li>
+<li>Path</li>
+<li>LvlType ID</li>
+<li>LvlPrest Def</li>
+<li>comment (optional)</li>
+</ol>
+</div>
+
+<div>
+<h2 id="afterword">Other Stuff:</h2>
+<h3 id="feedback">Feedback</h3>
+<p>For feedback, comments and updates go <a
+href="http://www.d2mods.com/forum/viewtopic.php?t=21281">here</a>.</p>
+<h3 id="credits">Credits:</h3>
+<p>Thanks to Paul Siramy for helping me debug this program and for making his
+editor in the first place, and thanks to RaeVan Morlock for making the great DD
+logo, and thanks to many members of the <a href="http://www.d2mods.com">Phrozen
+Keep</a> for their help.</p>
+<h3 id="license">License:</h3>
+<p>This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.</p>
+<p>You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+St, Fifth Floor, Boston, MA 02110-1301 USA </p>
+</div>
+</div>
+<p id="valid">
+<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+<a href="http://validator.w3.org/check?uri=referer">XHTML</a>
+<!--[if IE]>
+<a id="getfirefox" href="http://www.getfirefox.com/">Get Firefox!</a>
+<![endif]-->
+</p>
+</body>
+</html>

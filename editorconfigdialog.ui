@@ -1,0 +1,1355 @@
+<ui version="4.0" >
+ <author>Mark Nevill</author>
+ <class>ConfigEditorDialog</class>
+ <widget class="QDialog" name="ConfigEditorDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>553</width>
+    <height>745</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>0</hsizetype>
+    <vsizetype>0</vsizetype>
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="font" >
+   <font>
+    <family>Sans Serif</family>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>4</number>
+   </property>
+   <property name="spacing" >
+    <number>4</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="commentsGroup" >
+     <property name="title" >
+      <string>Comments</string>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>4</number>
+      </property>
+      <property name="spacing" >
+       <number>4</number>
+      </property>
+      <item>
+       <widget class="QRadioButton" name="removeComments" >
+        <property name="text" >
+         <string>Remove comments</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="resetComments" >
+        <property name="text" >
+         <string>Reset comments</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="preserveComments" >
+        <property name="text" >
+         <string>Preserve comments</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="pathsGroup" >
+     <property name="title" >
+      <string>Paths</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>4</number>
+      </property>
+      <property name="spacing" >
+       <number>4</number>
+      </property>
+      <item row="3" column="0" >
+       <widget class="QLabel" name="patchd2Label" >
+        <property name="text" >
+         <string>patch_d2:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QLabel" name="d2expLabel" >
+        <property name="text" >
+         <string>d2exp:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QLineEdit" name="d2data" />
+      </item>
+      <item row="3" column="1" >
+       <widget class="QLineEdit" name="patchd2" />
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="d2pathLabel" >
+        <property name="text" >
+         <string>d2char:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="QLineEdit" name="d2char" />
+      </item>
+      <item row="1" column="0" >
+       <widget class="QLabel" name="d2dataLabel" >
+        <property name="text" >
+         <string>d2data:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" >
+       <widget class="QLabel" name="moddirLabel" >
+        <property name="text" >
+         <string>mod_dir:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="QLineEdit" name="d2exp" />
+      </item>
+      <item row="4" column="1" >
+       <widget class="QLineEdit" name="moddir" />
+      </item>
+      <item row="0" column="2" >
+       <widget class="QPushButton" name="pushButton" >
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" >
+       <widget class="QPushButton" name="pushButton_2" >
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" >
+       <widget class="QPushButton" name="pushButton_3" >
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2" >
+       <widget class="QPushButton" name="pushButton_4" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>5</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2" >
+       <widget class="QPushButton" name="pushButton_5" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>5</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="screenGroup" >
+     <property name="title" >
+      <string>Screen</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="1" >
+       <widget class="QLabel" name="label_6" >
+        <property name="text" >
+         <string>Width:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" >
+       <widget class="QLabel" name="label_8" >
+        <property name="text" >
+         <string>Depth:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" >
+       <widget class="QLabel" name="label_7" >
+        <property name="text" >
+         <string>Height:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QLineEdit" name="screenWidth" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>13</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4" >
+       <widget class="QLabel" name="label_9" >
+        <property name="text" >
+         <string>Refresh Rate:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" >
+       <widget class="QLineEdit" name="screenHeight" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>13</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4" >
+       <widget class="QLineEdit" name="screenRefresh" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>13</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3" >
+       <widget class="QComboBox" name="screenDepth" >
+        <property name="currentIndex" >
+         <number>2</number>
+        </property>
+        <item>
+         <property name="text" >
+          <string>8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>15</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>16</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>24</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>32</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item rowspan="2" row="0" column="0" >
+       <widget class="QCheckBox" name="fullscreen" >
+        <property name="text" >
+         <string>Fullscreen</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="speedsGroup" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>1</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title" >
+      <string>Speeds</string>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>1</number>
+        </property>
+        <item row="1" column="2" >
+         <widget class="QLineEdit" name="lineEdit_12" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1" >
+         <widget class="QLineEdit" name="lineEdit_15" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2" >
+         <widget class="QLineEdit" name="lineEdit_16" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" >
+         <widget class="QLabel" name="label_17" >
+          <property name="minimumSize" >
+           <size>
+            <width>30</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Y:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" >
+         <widget class="QLineEdit" name="lineEdit_11" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2" >
+         <widget class="QLineEdit" name="lineEdit_14" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" >
+         <widget class="QLineEdit" name="lineEdit_13" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>15</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maxLength" >
+           <number>4</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" >
+         <widget class="QLabel" name="label_16" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>30</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>X:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" >
+         <widget class="QLabel" name="label_15" >
+          <property name="text" >
+           <string>Scrolling Speeds:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" >
+         <widget class="QLabel" name="label_18" >
+          <property name="text" >
+           <string>Keyboard Scroll:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" >
+         <widget class="QLabel" name="label_19" >
+          <property name="text" >
+           <string>Mouse Scroll:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" >
+         <widget class="QLabel" name="label_20" >
+          <property name="text" >
+           <string>Tile Ed. Wnd. Scroll:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_21" >
+          <property name="text" >
+           <string>Object Edit Scroll:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_17" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>13</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>4</number>
+        </property>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType" >
+           <enum>QSizePolicy::Preferred</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_22" >
+          <property name="text" >
+           <string>Mouse Speed:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_23" >
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>X:</string>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_18" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>13</hsizetype>
+              <vsizetype>0</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_24" >
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Y:</string>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_19" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>13</hsizetype>
+              <vsizetype>0</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType" >
+           <enum>QSizePolicy::Preferred</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="miscGroup" >
+     <property name="title" >
+      <string>Misc</string>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>4</number>
+      </property>
+      <property name="spacing" >
+       <number>4</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>4</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_10" >
+            <property name="text" >
+             <string>Gamma Correction:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_2" >
+            <property name="currentIndex" >
+             <number>23</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>0.60</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.62</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.64</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.66</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.68</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.70</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.72</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.74</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.76</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.78</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.80</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.82</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.84</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.86</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.88</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.90</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.92</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.94</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.96</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>0.98</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.00</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.20</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.30</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.40</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.50</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.60</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.70</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.80</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1.90</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.00</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.20</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.30</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.40</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.50</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.60</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.70</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.80</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2.90</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>3.00</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_2" >
+          <property name="text" >
+           <string>Allow type 2 objects of higher Acts</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_4" >
+          <property name="text" >
+           <string>Always maximize layer count</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_5" >
+          <property name="text" >
+           <string>Stretch sprites when zooming</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_3" >
+          <property name="text" >
+           <string>Minimize file size of saved .ds1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_11" >
+            <property name="text" >
+             <string>Zoom after centering:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_3" >
+            <property name="currentIndex" >
+             <number>0</number>
+            </property>
+            <property name="sizeAdjustPolicy" >
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+            <item>
+             <property name="text" >
+              <string>NO_CHANGE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1:1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1:2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1:4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1:8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1:16</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_12" >
+          <property name="text" >
+           <string>When object editing window is open:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_6" >
+          <property name="text" >
+           <string>Mouse scrolls main screen</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_7" >
+          <property name="text" >
+           <string>Keyboard scrolls main screen</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>16</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label" >
+          <property name="text" >
+           <string>Size of object table in the .dll for:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>4</number>
+          </property>
+          <item row="1" column="1" >
+           <widget class="QLineEdit" name="lineEdit_10" />
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="label_14" >
+            <property name="text" >
+             <string>type 2 objects:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_13" >
+            <property name="text" >
+             <string>type 1 objects:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QLineEdit" name="lineEdit_9" />
+          </item>
+          <item rowspan="2" row="0" column="2" >
+           <widget class="QPushButton" name="pushButton_6" >
+            <property name="text" >
+             <string>Revert</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>removeComments</tabstop>
+  <tabstop>resetComments</tabstop>
+  <tabstop>preserveComments</tabstop>
+  <tabstop>d2char</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>d2data</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>d2exp</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>patchd2</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>moddir</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>fullscreen</tabstop>
+  <tabstop>screenWidth</tabstop>
+  <tabstop>screenHeight</tabstop>
+  <tabstop>screenDepth</tabstop>
+  <tabstop>screenRefresh</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>lineEdit_16</tabstop>
+  <tabstop>lineEdit_17</tabstop>
+  <tabstop>lineEdit_18</tabstop>
+  <tabstop>lineEdit_19</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>checkBox_2</tabstop>
+  <tabstop>checkBox_4</tabstop>
+  <tabstop>checkBox_5</tabstop>
+  <tabstop>checkBox_3</tabstop>
+  <tabstop>comboBox_3</tabstop>
+  <tabstop>checkBox_6</tabstop>
+  <tabstop>checkBox_7</tabstop>
+  <tabstop>lineEdit_9</tabstop>
+  <tabstop>lineEdit_10</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ConfigEditorDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>227</x>
+     <y>745</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ConfigEditorDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>295</x>
+     <y>734</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
