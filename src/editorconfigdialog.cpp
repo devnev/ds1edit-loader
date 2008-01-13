@@ -52,11 +52,11 @@ void EditorConfigDialog::setupWidgets()
 		void (EditorConfigDialog::*setupWidgetFn)(QWidget*);
 	};
 	WidgetGroupSetupFunctions widgetSetupFunctions[5] = {
-		{ tr("&Comments"), &EditorConfigDialog::setupCommentWidgets },
 		{ tr("&Paths"), &EditorConfigDialog::setupPathWidgets },
 		{ tr("&Screen"), &EditorConfigDialog::setupScreenWidgets },
 		{ tr("Sp&eeds"), &EditorConfigDialog::setupSpeedWidgets },
-		{ tr("&Misc"), &EditorConfigDialog::setupMiscWidgets }
+		{ tr("&Misc"), &EditorConfigDialog::setupMiscWidgets },
+		{ tr("&Comments"), &EditorConfigDialog::setupCommentWidgets },
 	};
 
 	QVBoxLayout* topLevelLayout = new QVBoxLayout(this); // top-level layout
