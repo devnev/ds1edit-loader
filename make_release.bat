@@ -25,12 +25,12 @@ COPY "readmefirst!!!.html" %BINDIST%
 COPY pp_1_1.jpg %BINDIST%
 CD %BINDIST%
 D:\7-Zip\7z a ..\ds1edit_loader-bin-nodll.7z *
-D:\GnuWin32\bin\zip -9 -r ..\ds1edit_loader-bin-nodll.zip *
+C:\cygwin\bin\zip -9 -r ..\ds1edit_loader-bin-nodll.zip *
 CD ..\..
 XCOPY dlls\* %BINDIST%
 CD %BINDIST%
 D:\7-Zip\7z a ..\ds1edit_loader-bin.7z *
-D:\GnuWin32\bin\zip -9 -m -r ..\ds1edit_loader-bin.zip *
+C:\cygwin\bin\zip -9 -m -r ..\ds1edit_loader-bin.zip *
 CD ..\..
 RMDIR %BINDIST%
 
@@ -63,7 +63,7 @@ MKDIR %SRCDIST%\build
 COPY build\build.pro %SRCDIST%\build
 CD %SRCDIST%
 D:\7-Zip\7z a ..\ds1edit_loader-src.7z *
-D:\GnuWin32\bin\zip -9 -m -r ..\ds1edit_loader-src.zip *
+C:\cygwin\bin\zip -9 -m -r ..\ds1edit_loader-src.zip *
 CD ..\..
 RMDIR %SRCDIST%
 
