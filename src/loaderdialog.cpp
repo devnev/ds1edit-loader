@@ -56,6 +56,7 @@
 #include "datasync.h"
 #include "mapsnotfounddialog.h"
 #include "loaderparams.h"
+#include "initialconfigdialog.h"
 #ifdef Q_WS_WIN
 #include "dde.h"
 #endif
@@ -95,15 +96,9 @@ LoaderDialog::LoaderDialog(QWidget* parent)
 	}
 	if (configure)
 	{
-		if (QMessageBox::warning(this, tr("Unconfigured Loader"),
-			tr("The loader does not seem to be configured properly.\n"
-			"Would you like to configure it now?\n"),
-			QMessageBox::Yes | QMessageBox::No)
-			== QMessageBox::No)
-			ETHROW(Exception("Loader not configured properly"));
-		// ask the user to configure the loader then reload settings again
 		try {
-			LoaderConfigDialog dlg(this);
+			InitialConfigDialog dlg;
+			// ask the user to configure basic loader options then reload settings again
 			if (dlg.exec() == QDialog::Accepted)
 				reloadSettings();
 			else
@@ -683,6 +678,7 @@ void LoaderDialog::configureEditor()
 	QDir currentDir = QDir::current();
 	try {
 		QDir::setCurrent(ds1editPath);
+		std::cout << QDir::current().absolutePath().toStdString() << std::endl;
 		EditorConfigDialog dlg(this);
 		dlg.exec();
 	} catch (Exception& e) {
