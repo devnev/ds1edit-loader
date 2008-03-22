@@ -46,6 +46,10 @@ class QTreeWidgetItem;
 class DdeInterface;
 #endif
 
+#ifdef Q_WS_WIN
+void registerExtension(QWidget* parent = 0);
+#endif
+
 class LoaderDialog : public QMainWindow
 {
 	Q_OBJECT
@@ -161,7 +165,7 @@ private slots:
 	void configureEditor();
 	void configureLoader();
 #ifdef Q_WS_WIN
-	void registerExtension();
+	void registerExtension() { ::registerExtension(this); }
 #endif
 	void about();
 

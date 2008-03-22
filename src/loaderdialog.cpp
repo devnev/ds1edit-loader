@@ -875,9 +875,9 @@ void LoaderDialog::mapDoubleClicked(QTreeWidgetItem* item, int column)
 }
 
 #ifdef Q_WS_WIN
-void  LoaderDialog::registerExtension()
+void  registerExtension(QWidget* parent)
 {
-	FNTRACE("", "LoaderDialog", "registerExtension", "");
+	FNTRACE("", "", "registerExtension", "");
 
 	QSettings ext("HKEY_CLASSES_ROOT\\.ds1", QSettings::NativeFormat);
 	ext.setValue(QString(), "Ds1editLoader.ds1");
@@ -916,7 +916,7 @@ void  LoaderDialog::registerExtension()
 	topic.setValue(QString(), QString::fromAscii(TopicName));
 #endif
 
-	QMessageBox::information(this, "Success", ".ds1 extension registered");
+	QMessageBox::information(parent, "Success", ".ds1 extension registered");
 }
 #endif
 
