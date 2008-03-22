@@ -32,7 +32,7 @@ namespace params
 
 QString fileName = "maplist.txt";
 
-data_t readParams() throw (ParseError)
+data_t readParams() throw (ParseError, Exception)
 {
 	FNTRACE("params", "", "readParams", "");
 

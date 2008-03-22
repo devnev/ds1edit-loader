@@ -35,7 +35,7 @@ namespace params
 
 	typedef QList<Ds1Info> data_t;
 
-	data_t readParams() throw (ParseError);
+	data_t readParams() throw (ParseError, Exception);
 
 	void writeParams(const data_t& data) throw(Exception);
 
