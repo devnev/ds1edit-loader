@@ -34,7 +34,7 @@ AboutDialog::AboutDialog(QWidget* parent)
 	icon->setAlignment(Qt::AlignTop);
 	topLevelLayout->addWidget(icon, 0, 0, 3, 1);
 
-	QLabel* copyright = new QLabel(tr("ds1edit Loader version (2.1)\n"
+	QLabel* copyright = new QLabel(tr("ds1edit Loader version (2.2)\n"
 		"Copyright \251 Mark Nevill 2002-2007"), this);
 	topLevelLayout->addWidget(copyright, 0, 1, 1, 1);
 
