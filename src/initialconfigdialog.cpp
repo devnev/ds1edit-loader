@@ -165,7 +165,7 @@ void InitialConfigDialog::accept()
 
 #ifdef Q_WS_WIN
 	if (registerExtension->isChecked())
-		registerExtension(this);
+		::registerExtension(this);
 #endif
 
 	QDialog::accept();
